@@ -38,4 +38,10 @@ I welcome improvements, bug fixes, or new features! Here’s how to get started:
 - **Testing**: Test API endpoints in Postman and UI interactions manually.  
 - **Documentation**: Update the README if adding new features.
 
+## 🧠 Backend Knowledge Summary (MERN Stack)
 
+I’ve built a full-fledged backend using the **MERN stack**, with a strong understanding of **RESTful API development** using **Express.js** and **MongoDB**. I structured the codebase following the **MVC architecture**, organizing logic into separate folders for **controllers**, **models**, and **routes** to maintain modularity and clean separation of concerns. The **MongoDB connection** logic is isolated in a `db.js` file inside the `config` folder, using **Mongoose** to define schemas and interact with the database.
+
+I’ve implemented all asynchronous operations using `async/await` within `try/catch` blocks for proper **error handling** and reliability. Sensitive configuration details like database URIs are stored in environment variables using **dotenv** to keep them secure. I also successfully **deployed** the backend to **Render** after pushing the code to **GitHub**, and connected it to a live **MongoDB Atlas** instance.
+
+I can confidently explain how each part of the backend interacts and contributes to the overall functionality of the application.
