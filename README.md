@@ -1,6 +1,8 @@
 #### **Project Title**  
 **MERN Stack CRUD Application** – A dynamic web app with Zustand state management and Chakra UI.  
 
+[![Live Demo](https://img.shields.io/badge/demo-live-brightgreen)](https://mern-project-zl0e.onrender.com)
+
 #### **🔹 Key Features**  
 ✅ **Full CRUD Operations** – Create, read, update, and delete data via a React frontend and Node.js API.  
 ✅ **Modern State Management** – Used **Zustand** to handle global state (e.g., form data, UI toggles).  
@@ -34,4 +36,6 @@ I welcome improvements, bug fixes, or new features! Here’s how to get started:
 #### **🔹 Collaboration Guidelines**  
 - **Code Style**: Follow existing patterns (e.g., Chakra UI for components, Zustand for state).  
 - **Testing**: Test API endpoints in Postman and UI interactions manually.  
-- **Documentation**: Update the README if adding new features.  
+- **Documentation**: Update the README if adding new features.
+
+
