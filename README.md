@@ -55,3 +55,5 @@ Axios (for HTTP requests)** as well as used **Zustand** for state management and
 I’ve implemented all asynchronous operations using `async/await` within `try/catch` blocks for proper **error handling** and reliability. Sensitive configuration details like database URIs are stored in environment variables using **dotenv** to keep them secure. I also successfully **deployed** the application to **Render** after pushing the code to **GitHub**, and connected it to a live **MongoDB Atlas** instance.
 
 I can confidently explain how each part of the backend interacts and contributes to the overall functionality of the application.
+
+⚠️ Note: This project is currently using a hardcoded localhost API for backend access, which will cause login errors unless run locally with the backend server active. Planned improvement: switch to environment-based API URLs for production support.
