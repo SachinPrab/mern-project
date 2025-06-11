@@ -14,6 +14,8 @@
 - **Frontend**: React, Zustand, Chakra UI
 - **Backend**: Node.js, Express, MongoDB  
 - **Tools**: Postman (API testing), Git, VSCode
+- **Security**: bcryptjs, jsonwebtoken, cookie-parser, cors
+- **Build Tool**: Vite
 
 ### **🤝 Inviting Contributors (README.md Section)**  
 #### **🔹 Want to Contribute?**  
@@ -41,6 +43,8 @@ I welcome improvements, bug fixes, or new features! Here’s how to get started:
 ## 🧠 Backend Knowledge Summary (MERN Stack)
 
 I’ve built a full-fledged backend using the **MERN stack**, with a strong understanding of **RESTful API development** using **Express.js** and **MongoDB**. I structured the codebase following the **MVC architecture**, organizing logic into separate folders for **controllers**, **models**, and **routes** to maintain modularity and clean separation of concerns. The **MongoDB connection** logic is isolated in a `db.js` file inside the `config` folder, using **Mongoose** to define schemas and interact with the database.
+
+I’ve also implemented JWT-based authentication, allowing users to sign up, log in, and log out securely. Passwords are hashed with bcryptjs, and jsonwebtoken is used to sign and verify tokens. Authentication state is managed using HTTP-only cookies, providing a secure and scalable solution for session management.
 
 I’ve implemented all asynchronous operations using `async/await` within `try/catch` blocks for proper **error handling** and reliability. Sensitive configuration details like database URIs are stored in environment variables using **dotenv** to keep them secure. I also successfully **deployed** the backend to **Render** after pushing the code to **GitHub**, and connected it to a live **MongoDB Atlas** instance.
 
