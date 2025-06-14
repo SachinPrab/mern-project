@@ -43,11 +43,12 @@ async function login (req, res) {
         const exp = Date.now() + 1000 * 60 * 60 * 24 * 30;
         const token = jwt.sign({ sub: user._id, exp }, process.env.JWT_SECRET);
     
-        res.cookie("Authorization", token, {
-            expires: new Date(exp),
+        res.cookie('Authorization', token, {
             httpOnly: true,
-            sameSite: "lax",
-            secure: process.env.NODE_ENV === "production",
+            secure: true, // Always use secure in production
+            sameSite: 'none', // Required for cross-site cookies
+            maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+            domain: process.env.NODE_ENV === 'production' ? '.onrender.com' : 'localhost'
         });
 
         // Send a proper response
