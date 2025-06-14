@@ -56,4 +56,8 @@ I’ve implemented all asynchronous operations using `async/await` within `try/c
 
 I can confidently explain how each part of the backend interacts and contributes to the overall functionality of the application.
 
-⚠️ Note: This project is currently using a hardcoded localhost API for backend access, which will cause login errors unless run locally with the backend server active. Planned improvement: switch to environment-based API URLs for production support.
+⚠️ Note: This project is currently using a hardcoded localhost API for backend access, which will cause login errors unless run locally with the backend server active. Planned improvement: switch to environment-based API URLs for production support.support
+
+
+**UPDATE**: App has been fully deployed and is now operational on Render. Enjoy exploring the full experience live! 
+
