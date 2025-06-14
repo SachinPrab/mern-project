@@ -16,39 +16,55 @@ const hash = bcrypt.hashSync(password, 10);
     }
 }
 
-async function login (req,res)
-{
+async function login (req, res) {
     try {
-    const { email, password } = req.body;
-     const user = await User.findOne({ email });
-    if(!user) 
-        {
-        return res.status(401).json({ message: 'Invalid email or password' });
-    }
-       
-       const passwordMatch = bcrypt.compareSync(password, user.password); //compare sent password with found user password
-        if(!passwordMatch)
-         {
-        return res.status(401).json({ message: 'Invalid email or password' });
-    }
-    const exp = Date.now() + 1000 * 60 * 60 * 24 * 30; // 30 days expiration
-    const token = jwt.sign({ sub: user._id, exp }, process.env.JWT_SECRET);
-    
-    //set cookie
-res.cookie("Authorization", token, {
-    expires: new Date(exp),
-    httpOnly: true, //only browser and server can access this cookie
-    sameSite: "lax", //cookie will be sent only to same site
-    secure: process.env.NODE_ENV === "production", //cookie will be sent only over HTTPS in production
-}) 
+        const { email, password } = req.body;
+        
+        if (!email || !password) {
+            return res.status(400).json({ 
+                message: 'Email and password are required' 
+            });
+        }
 
-    res.sendStatus(200);
-}
-catch(error)
-{
-    console.log('Error during login:', error);
-    res.sendStatus(400); // Bad Request
-}
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(401).json({ 
+                message: 'Invalid email or password' 
+            });
+        }
+       
+        const passwordMatch = bcrypt.compareSync(password, user.password);
+        if (!passwordMatch) {
+            return res.status(401).json({ 
+                message: 'Invalid email or password' 
+            });
+        }
+
+        const exp = Date.now() + 1000 * 60 * 60 * 24 * 30;
+        const token = jwt.sign({ sub: user._id, exp }, process.env.JWT_SECRET);
+    
+        res.cookie("Authorization", token, {
+            expires: new Date(exp),
+            httpOnly: true,
+            sameSite: "lax",
+            secure: process.env.NODE_ENV === "production",
+        });
+
+        // Send a proper response
+        res.status(200).json({ 
+            message: 'Login successful',
+            user: { 
+                id: user._id,
+                name: user.name,
+                email: user.email 
+            }
+        });
+    } catch (error) {
+        console.log('Error during login:', error);
+        res.status(500).json({ 
+            message: 'Internal server error' 
+        });
+    }
 }
 
 

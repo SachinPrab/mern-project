@@ -26,6 +26,17 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      if (!email || !password) {
+        toast({
+          title: "Error",
+          description: "Please fill in all fields",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+        return;
+      }
+
       await loginUser({ email, password });
       setIsAuthenticated(true);
       toast({
@@ -38,7 +49,7 @@ function Login() {
     } catch (error) {
       toast({
         title: "Error",
-        description: error.message || "Invalid credentials",
+        description: error.message,
         status: "error",
         duration: 3000,
         isClosable: true,

@@ -19,7 +19,10 @@ export const loginUser = async (credentials) => {
     const response = await api.post('/users/login', credentials);
     return response.data;
   } catch (error) {
-    throw error.response.data;
+    // Fix error handling here
+    throw {
+      message: error.response?.data?.message || 'Login failed. Please try again.'
+    };
   }
 };
 
