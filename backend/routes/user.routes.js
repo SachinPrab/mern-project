@@ -11,3 +11,4 @@ router.post('/logout', usersControllers.logout);
 router.get('/check-auth', requireAuth, usersControllers.checkAuth);
 
 export default router;
+
